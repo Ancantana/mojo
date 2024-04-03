@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mojo-Design-Intern-AnHuynh</title>
+    <style>
+        body {
+            background-color: #E8E8E8;
+            color: #6A6142;
+            font-size: 18px;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            background-color: #6A6142;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+        .floating-rectangle {
+            position: absolute;
+            background-color: #fff;
+            padding: 10px;
+            border: 1px solid #6A6142;
+            animation: bounceAround 4s linear infinite;
+        }
+        @keyframes bounceAround {
+            0%, 100% { top: 0; left: 0; }
+            25% { top: calc(100vh - 100px); left: calc(100vw - 200px); }
+            50% { top: calc(50vh - 50px); left: calc(50vw - 100px); }
+            75% { top: calc(25vh - 25px); left: calc(75vw - 150px); }
+        }
+        .icon-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .icon {
+            width: 100px;
+            height: 100px;
+            margin: 0 10px;
+            cursor: pointer;
+        }
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            padding: 20px;
+            border: 1px solid #6A6142;
+        }
+        .close-btn {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        user/hire_me_please_MojoSupermarket_AnHuynh_DesignIntern
+    </header>
+    <div class="floating-rectangle">
+        <a href="https://an-huynh.com/" target="_blank">https://an-huynh.com/</a>
+    </div>
+    <div class="icon-container">
+        <img src="sailr mooon.png" alt="Icon 1" class="icon" onclick="showPopup('popup1')">
+        <a href="https://an-huynh.com/" target="_blank">
+            <img src="original_4829ce3281b9c5fc08bf067c981f0b8d.png" alt="Icon 2" class="icon">
+        </a>
+        <img src="original_9b689f5b22b6c07d9139ba01a4a44ff8.png" alt="Icon 3" class="icon" onclick="showPopup('popup3')">
+    </div>
+    <div id="popup1" class="popup">
+        <span class="close-btn" onclick="hidePopup('popup1')">&times;</span>
+        <p>My name is An Huynh and I am a digital weaver and patternmaker. By that, I mean I am a designer in both digital and physical mediums. You can see more of my work on my website (click on the dog)</p>
+    </div>
+    <div id="popup3" class="popup">
+        <span class="close-btn" onclick="hidePopup('popup3')">&times;</span>
+        <p>What can I bring to Mojo Supermarket? 1) I am both a brand and product designer 2) I can knit us all sweaters 3) I can code 4) I can move things with my mind</p>
+    </div>
+    <script>
+        function showPopup(id) {
+            document.getElementById(id).style.display = "block";
+        }
+        function hidePopup(id) {
+            document.getElementById(id).style.display = "none";
+        }
+        document.addEventListener("click", function(event) {
+            if (!event.target.matches(".icon") && !event.target.closest(".popup")) {
+                var popups = document.getElementsByClassName("popup");
+                for (var i = 0; i < popups.length; i++) {
+                    popups[i].style.display = "none";
+                }
+            }
+        });
+    </script>
+</body>
+</html>
